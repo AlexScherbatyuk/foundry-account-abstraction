@@ -263,3 +263,7 @@ For questions and support:
 ---
 
 **Note**: This is a learning project. Do not use in production without thorough auditing and testing.
+
+
+MinimalAccount: 0x5B17b78e34954A760D293655bAF440C817080C3E
+AA transaction: 0x4cfa87c0ff80203bb5d06f847703ddf114af944383feedbfc2b59ad0dd9314e0

@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.29;
+pragma solidity 0.8.24;
 
 import {Script} from "forge-std/Script.sol";
 import {PackedUserOperation} from "@eth-infinitism/account-abstraction/interfaces/PackedUserOperation.sol";
@@ -19,21 +19,21 @@ contract SendPackedUserOp is CodeConstances, Script {
     function run() public {
         // Setup
         HelperConfig helperConfig = new HelperConfig();
-        address dest = helperConfig.getConfig().usdc; // arbitrum mainnet USDC address
+        HelperConfig.NetworkConfig memory config = helperConfig.getConfig();
+        address dest = config.usdc; // arbitrum mainnet USDC address
         uint256 value = 0;
         address minimalAccountAddress = DevOpsTools.get_most_recent_deployment("MinimalAccount", block.chainid);
 
         bytes memory functionData = abi.encodeWithSelector(IERC20.approve.selector, RANDOM_APPROVER, 1e18);
         bytes memory executeCalldata =
             abi.encodeWithSelector(MinimalAccount.execute.selector, dest, value, functionData);
-        PackedUserOperation memory userOp =
-            generateSignedUserOperation(executeCalldata, helperConfig.getConfig(), minimalAccountAddress);
+        PackedUserOperation memory userOp = generateSignedUserOperation(executeCalldata, config, minimalAccountAddress);
         PackedUserOperation[] memory ops = new PackedUserOperation[](1);
         ops[0] = userOp;
 
         // Send transaction
         vm.startBroadcast();
-        IEntryPoint(helperConfig.getConfig().entryPoint).handleOps(ops, payable(helperConfig.getConfig().account));
+        IEntryPoint(config.entryPoint).handleOps(ops, payable(config.account));
         vm.stopBroadcast();
     }
 

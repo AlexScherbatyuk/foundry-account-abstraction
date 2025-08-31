@@ -10,8 +10,8 @@ remappings = [
 ]
 fs_permissions = [{access = "read-write",path = "./broadcast"}]
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
-s_system = true #, need to --system-mode=true
-via-ir = true
+#s_system = true #, need to --system-mode=true
+#via-ir = true
 
 [fmt]
 line_length = 120
