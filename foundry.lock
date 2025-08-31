@@ -1,0 +1,32 @@
+{
+  "lib/foundry-era-contracts": {
+    "tag": {
+      "name": "0.0.3",
+      "rev": "3f99de4a37b126c5cb0466067f37be0c932167b2"
+    }
+  },
+  "lib/foundry-devops": {
+    "tag": {
+      "name": "0.3.0",
+      "rev": "70b1a82acb8452382347e5244227b9e0fddb411f"
+    }
+  },
+  "lib/account-abstraction": {
+    "tag": {
+      "name": "v0.7.0",
+      "rev": "7af70c8993a6f42973f520ae0752386a5032abe7"
+    }
+  },
+  "lib/openzeppelin-contracts": {
+    "tag": {
+      "name": "v5.0.2",
+      "rev": "dbb6104ce834628e473d2173bbc9d47f81a9eec3"
+    }
+  },
+  "lib/forge-std": {
+    "tag": {
+      "name": "v1.10.0",
+      "rev": "8bbcf6e3f8f62f419e5429a0bd89331c85c37824"
+    }
+  }
+}
